@@ -1,6 +1,6 @@
 #include "Struct.h"
 
-// функция функция вывода значений вершин графа
+// С„СѓРЅРєС†РёСЏ С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° Р·РЅР°С‡РµРЅРёР№ РІРµСЂС€РёРЅ РіСЂР°С„Р°
 void printArr(vector<int>& Arr, int& n)
 {
     for (int i = 0; i < n; i++)
@@ -9,24 +9,24 @@ void printArr(vector<int>& Arr, int& n)
     }
 }
 
-//функция рандомного числа
+//С„СѓРЅРєС†РёСЏ СЂР°РЅРґРѕРјРЅРѕРіРѕ С‡РёСЃР»Р°
 int getRandomNumber(int min, int max)
 {
     return rand() % (max - min) + min;
 }
 
-// Функция для вывода времени в нужном формате
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РІС‹РІРѕРґР° РІСЂРµРјРµРЅРё РІ РЅСѓР¶РЅРѕРј С„РѕСЂРјР°С‚Рµ
 void printDuration(microseconds duration)
 {
-    milliseconds millisec = duration_cast<milliseconds>(duration); // Получаем время в миллисекундах
-    int microsec = duration.count() % 1000; // Остаток времени в микросекундах
+    milliseconds millisec = duration_cast<milliseconds>(duration); // РџРѕР»СѓС‡Р°РµРј РІСЂРµРјСЏ РІ РјРёР»Р»РёСЃРµРєСѓРЅРґР°С…
+    int microsec = duration.count() % 1000; // РћСЃС‚Р°С‚РѕРє РІСЂРµРјРµРЅРё РІ РјРёРєСЂРѕСЃРµРєСѓРЅРґР°С…
 
     cout << millisec.count()
         << setfill('0') << setw(3) << microsec
         << " microsec" << endl;
 }
 
-// Функция сравнения для qsort
+// Р¤СѓРЅРєС†РёСЏ СЃСЂР°РІРЅРµРЅРёСЏ РґР»СЏ qsort
 int compare(const void* a, const void* b)
 {
     return (*(int*)a - *(int*)b);
@@ -35,7 +35,7 @@ int compare(const void* a, const void* b)
 void assignValuesFromFile(vector<int>& vec, int lst) {
     string txt;
 
-    // Выбираем имя файла в зависимости от lst
+    // Р’С‹Р±РёСЂР°РµРј РёРјСЏ С„Р°Р№Р»Р° РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ lst
     if (lst == 10)       txt = "text1.txt";
     else if (lst == 100) txt = "text2.txt";
     else if (lst == 1000) txt = "text3.txt";
@@ -57,11 +57,11 @@ void assignValuesFromFile(vector<int>& vec, int lst) {
     while (getline(file, line)) {
         istringstream iss(line);
         if (!(iss >> index >> value)) {
-            continue; // Пропускаем некорректные строки
+            continue; // РџСЂРѕРїСѓСЃРєР°РµРј РЅРµРєРѕСЂСЂРµРєС‚РЅС‹Рµ СЃС‚СЂРѕРєРё
         }
 
         if (index >= vec.size()) {
-            vec.resize(index + 1); // Расширяем вектор при необходимости
+            vec.resize(index + 1); // Р Р°СЃС€РёСЂСЏРµРј РІРµРєС‚РѕСЂ РїСЂРё РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё
         }
 
         vec[index] = value;
