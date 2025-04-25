@@ -8,30 +8,30 @@ void printTree(const vector<int>& tree, int index = 0, string prefix = "", bool 
 {
     if (index >= tree.size()) return;
 
-    // Отрисовка ветки
+    // РћС‚СЂРёСЃРѕРІРєР° РІРµС‚РєРё
     cout << prefix;
     if (index != 0)
     {
         cout << (isLeft ? "??? " : "??? ");
     }
 
-    // Вывод значения
+    // Р’С‹РІРѕРґ Р·РЅР°С‡РµРЅРёСЏ
     cout << tree[index] << endl;
 
-    // Проверка на наличие детей
+    // РџСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ РґРµС‚РµР№
     int leftIndex = 2 * index + 1;
     int rightIndex = 2 * index + 2;
     bool hasLeft = leftIndex < tree.size();
     bool hasRight = rightIndex < tree.size();
 
-    // Формируем отступ
+    // Р¤РѕСЂРјРёСЂСѓРµРј РѕС‚СЃС‚СѓРї
     string newPrefix = prefix;
     if (index != 0)
     {
         newPrefix += (isLeft ? "?   " : "    ");
     }
 
-    // Рекурсивно печатаем потомков
+    // Р РµРєСѓСЂСЃРёРІРЅРѕ РїРµС‡Р°С‚Р°РµРј РїРѕС‚РѕРјРєРѕРІ
     if (hasRight)  printTree(tree, rightIndex, newPrefix, true, hasLeft);
     if (hasLeft) printTree(tree, leftIndex, newPrefix, false, false);
 }
@@ -39,22 +39,22 @@ void printTree(const vector<int>& tree, int index = 0, string prefix = "", bool 
 
 int main()
 {
-    //объявлоения + настройки
+    //РѕР±СЉСЏРІР»РѕРµРЅРёСЏ + РЅР°СЃС‚СЂРѕР№РєРё
     setlocale(LC_ALL, "ru");
     srand(time(0));
 
     int n;
-    //ввод значений
-    cout << "введите кол-во вершин\n";
+    //РІРІРѕРґ Р·РЅР°С‡РµРЅРёР№
+    cout << "РІРІРµРґРёС‚Рµ РєРѕР»-РІРѕ РІРµСЂС€РёРЅ\n";
     cin >> n;
-    //выход из программы, если число вершин отрицательно
+    //РІС‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹, РµСЃР»Рё С‡РёСЃР»Рѕ РІРµСЂС€РёРЅ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕ
     if (n < 0)
     {
-        cout << "число вершин не может быть отрицательным";
+        cout << "С‡РёСЃР»Рѕ РІРµСЂС€РёРЅ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рј";
         return -1;
     }
 
-    // Создаем вектор
+    // РЎРѕР·РґР°РµРј РІРµРєС‚РѕСЂ
     vector<int> Arr(n);
 
     for (int i = 0; i < n; ++i)
@@ -62,18 +62,18 @@ int main()
         cin >> Arr[i];
         while ((std::find(Arr.begin(), Arr.begin() + i, Arr[i]) != Arr.begin() + i))
         {
-            cout << "число уже есть\n";
+            cout << "С‡РёСЃР»Рѕ СѓР¶Рµ РµСЃС‚СЊ\n";
             cin >> Arr[i];
         }
     }
 
     cout << endl;
-    //замер времени (начало)
+    //Р·Р°РјРµСЂ РІСЂРµРјРµРЅРё (РЅР°С‡Р°Р»Рѕ)
     high_resolution_clock::time_point start = high_resolution_clock::now();
     qsort(Arr.data(), Arr.size(), sizeof(int), compare);
 
-    // Выводим ответ
-    cout << "Ответ:\n";
+    // Р’С‹РІРѕРґРёРј РѕС‚РІРµС‚
+    cout << "РћС‚РІРµС‚:\n";
 
     try
     {
@@ -89,30 +89,30 @@ int main()
     }
     catch (const std::out_of_range& e)
     {
-        cout << "Ошибка: правильного ответа не существует\n";
+        cout << "РћС€РёР±РєР°: РїСЂР°РІРёР»СЊРЅРѕРіРѕ РѕС‚РІРµС‚Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚\n";
         return 1;
     }
 
     Arr.clear();
     high_resolution_clock::time_point stop = high_resolution_clock::now();
-    // Подсчет времени выполнения
+    // РџРѕРґСЃС‡РµС‚ РІСЂРµРјРµРЅРё РІС‹РїРѕР»РЅРµРЅРёСЏ
     microseconds durationTime = duration_cast<microseconds>(stop - start);
     printDuration(durationTime);
     cout << "\n";
-    ofstream outFile("timing_results.csv", ios::out | ios::trunc);  // Явно указываем режимы записи
+    ofstream outFile("timing_results.csv", ios::out | ios::trunc);  // РЇРІРЅРѕ СѓРєР°Р·С‹РІР°РµРј СЂРµР¶РёРјС‹ Р·Р°РїРёСЃРё
     if (!outFile.is_open())
     {
-        cerr << "Ошибка создания файла!" << endl;
+        cerr << "РћС€РёР±РєР° СЃРѕР·РґР°РЅРёСЏ С„Р°Р№Р»Р°!" << endl;
         return -1;
     }
-    outFile << "Вершины;Время_в_микросекундах\n";  // Заголовки с правильным разделителем
+    outFile << "Р’РµСЂС€РёРЅС‹;Р’СЂРµРјСЏ_РІ_РјРёРєСЂРѕСЃРµРєСѓРЅРґР°С…\n";  // Р—Р°РіРѕР»РѕРІРєРё СЃ РїСЂР°РІРёР»СЊРЅС‹Рј СЂР°Р·РґРµР»РёС‚РµР»РµРј
 
     for (int lst = 10; lst < 100001; lst = lst * 10)
     {
         high_resolution_clock::time_point start = high_resolution_clock::now();
         Arr.resize(lst);
 
-        std::cout << "--- Генерация дерева на " << lst << "вершин---" << endl;
+        std::cout << "--- Р“РµРЅРµСЂР°С†РёСЏ РґРµСЂРµРІР° РЅР° " << lst << "РІРµСЂС€РёРЅ---" << endl;
         
         //
         assignValuesFromFile(Arr, lst);
@@ -133,10 +133,10 @@ int main()
         (void)Arr.at(lst / 2 - 1);
         Arr.clear();
         high_resolution_clock::time_point stop = high_resolution_clock::now();
-        // Подсчет времени выполнения сортировки пирамиды
+        // РџРѕРґСЃС‡РµС‚ РІСЂРµРјРµРЅРё РІС‹РїРѕР»РЅРµРЅРёСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё РїРёСЂР°РјРёРґС‹
         microseconds durationTime = duration_cast<microseconds>(stop - start);
         printDuration(durationTime);
-        // Сохраняем результат в файл
+        // РЎРѕС…СЂР°РЅСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ РІ С„Р°Р№Р»
         outFile << lst << ";" << durationTime.count() << "\n";
 
     }
