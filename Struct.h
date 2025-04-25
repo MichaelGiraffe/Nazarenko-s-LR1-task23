@@ -20,12 +20,12 @@
 using namespace std;
 using namespace chrono;
 
-// функция функция вывода значений вершин графа
+// С„СѓРЅРєС†РёСЏ С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° Р·РЅР°С‡РµРЅРёР№ РІРµСЂС€РёРЅ РіСЂР°С„Р°
 void printArr(vector<int>& Arr, int& n);
-//функция рандомного числа
+//С„СѓРЅРєС†РёСЏ СЂР°РЅРґРѕРјРЅРѕРіРѕ С‡РёСЃР»Р°
 int getRandomNumber(int min, int max);
-// Функция для вывода времени в нужном формате
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РІС‹РІРѕРґР° РІСЂРµРјРµРЅРё РІ РЅСѓР¶РЅРѕРј С„РѕСЂРјР°С‚Рµ
 void printDuration(microseconds duration);
-// Функция сравнения для qsort
+// Р¤СѓРЅРєС†РёСЏ СЃСЂР°РІРЅРµРЅРёСЏ РґР»СЏ qsort
 int compare(const void* a, const void* b);
 void assignValuesFromFile(std::vector<int>& vec, int i);
