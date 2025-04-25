@@ -9,4 +9,6 @@
 6. Работа сделана через vector<int>, дерево сделал отсортированным и ответ у меня получается из формулы (void)Arr.at(lst / 2 - 1); -это 133 строка файла Main.cpp
 
 Вроде все, всем удачи
-![Header](https://github.com/MichaelGiraffe/Nazarenko-s-LR1-task23/edit/main/)
+## 🌐 Для связи:
+[![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/cryptokipr55) 
+[![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:uscoff2005@gmail.com) 
