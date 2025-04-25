@@ -1,0 +1,6 @@
+﻿  Main.cpp
+C:\Users\user\Desktop\тензоры и графы\LR1.11\Main.cpp(44,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\user\Desktop\тензоры и графы\LR1.11\Main.cpp(90,37): warning C4101: e: неиспользованная локальная переменная
+  Struct.cpp
+  Создание кода...
+  LR1.11.vcxproj -> C:\Users\user\Desktop\тензоры и графы\LR1.11\x64\Debug\LR1.11.exe
